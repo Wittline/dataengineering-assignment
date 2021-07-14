@@ -28,7 +28,8 @@ Implement the solution above, preferably using Python (with Pandas), Java, C#, o
 
 # Assumptions
 
-1. First
-2. second
+1. When is a discount generated for a specific user and sales order?
+  - If the user is using coupon or promotional codes, then, the discount record will exist before the sale order is being generated
+3. second
 
 
