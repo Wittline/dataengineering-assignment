@@ -1,9 +1,6 @@
 # Cargill - Prescreening Tasks for Data Engineer
 
-This document provides the exercises that are part of the prescreening process for Data Engineering
-positions. As such, their goal is to provide insights into solutioning process and skills application for
-solving example tasks related to this position. Thus, please make sure to explain the important details
-and specify any assumption taken.
+This document provides the exercises that are part of the prescreening process for Data Engineering positions. As such, their goal is to provide insights into solutioning process and skills application for solving example tasks related to this position. Thus, please make sure to explain the important details and specify any assumption taken.
 
 ## Exercise 1
 Assume having a Sales table with the following fields:
