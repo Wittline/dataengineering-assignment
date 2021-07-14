@@ -27,7 +27,7 @@ For a customer and a sales order there can exist a discount value in the Discoun
 Implement the solution above, preferably using Python (with Pandas), Java, C#, or another programming language. You can also use a pseudo-code instead. Please make sure to provide comments where needed to the solution provided.
 
 # Context
-I will assume that this is an e-commerce app, and due to the description of the problem this is a problem design of an OLTP system, the exercises are not asking about agregations, data ingestion, transformations and less how to move data between systems, in order to get insights from the preexisted data, there are no references neither of the velocity of the data nor about the tasks scheduled, all the situations mentioned before are features of the OLAP solutions, Hence, I will avoid based my decitions thinking in OLAP systems.
+I will assume that this is an e-commerce app, and **due to the description of the problem this is a design problem of an OLTP system**, the exercises are not asking about agregations, data ingestion, transformations and less how to move data between systems, in order to get insights from the preexisted data, there are no references neither of the velocity of the data nor about the tasks scheduled, all the situations mentioned before are features of the OLAP solutions, Hence, **I will avoid based my decitions thinking in OLAP systems.**
 
 # Assumptions
 
