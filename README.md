@@ -43,6 +43,15 @@ There are two relevant situations in the description:
 
 
 
+![initial](https://user-images.githubusercontent.com/8701464/125843250-e545b578-dc04-41b9-a3ca-a5e22d72b060.png)
+
+## Edge case
+
+![second](https://user-images.githubusercontent.com/8701464/125843261-a78879e1-528b-4931-9598-d76d5d57e1f1.png)
+
+
+
+
 1. When is a discount generated for a specific user and sales order?
   - If the user is using coupon or promotional codes, then, the discount record will exist before the sale order is being generated
 3. second
