@@ -29,9 +29,7 @@ Implement the solution above, preferably using Python (with Pandas), Java, C#, o
 # Assumptions
 I will assume that this is an e-commerce app, and due to the description of the problem **this is a design problem of an OLTP system**, the exercises are not asking about agregations, data ingestion, transformations and less how to move data between systems, in order to get insights from the preexisted data, there are no references neither of the velocity of the data nor about the tasks scheduled, all the situations mentioned before are features of the OLAP solutions, Hence, **I will avoid based my decisions thinking in OLAP systems.**
 
-A sales order is a record that a customer can use to initiate or request a sale. In general, the sales order is filled out by the customer to order certain products from a business. The customer pays for these products when they submit the sales order. This document represents the promise that the requested goods will be ordered by the business and delivered to the customer later.
-
-When the goods are fulfilled and picked up by the customer, the sales order is used as a receipt to make sure the correct amount and types of products are given to the customer. In simple terms, a sales order is a request from a customer for specific items. 
+A sales order is a record that a customer can use to initiate or request a sale. In general, the sales order is filled out by the customer to order certain products from a business. The customer pays for these products when they submit the sales order. This document represents the promise that the requested goods will be ordered by the business and delivered to the customer later. When the goods are fulfilled and picked up by the customer, the sales order is used as a receipt to make sure the correct amount and types of products are given to the customer. In simple terms, a sales order is a request from a customer for specific items. 
 
 
 1. When is a discount generated for a specific user and sales order?
