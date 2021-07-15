@@ -41,7 +41,7 @@ There are two relevant situations in the description:
   - Here , the description is taking into account assign different discount vaues per item, which could implied store that information in another table.
   - Is there a catalog with a different discount for each item or is the discount allocation established in a general way to the entire user's order?
 
-
+## Base case
 The initial data model allows assigning a discount per user to each purchased item that appears in the sales table, but there are two problems with this approach:
 
 1. You cannot add different discounts to each item
@@ -81,26 +81,55 @@ insert into discounts values (1, 150, 0.3)
 
 ```
 
+ ```SQL
+select * from sales
+```
+
 
 ![image](https://user-images.githubusercontent.com/8701464/125846226-9a106ea3-e8fe-42e0-98fa-d651ee8bd5cb.png)
 
+ ```SQL
+select * from discounts
+```
+
 ![image](https://user-images.githubusercontent.com/8701464/125846290-a12a143d-766c-4738-ba8b-57a6749a01e1.png)
+
+ ```SQL
+WITH sales_updated_CTE(sales_order_id,sales_order_item, customer_id, date,transaction_value, discount)
+AS
+(
+    SELECT 
+        s.sales_order_id,
+        s.sales_order_item,
+        s.customer_id,
+        s.date,
+        s.transaction_value,
+        (s.transaction_value - (s.transaction_value * d.discount_value)) AS discount
+    FROM sales s
+    JOIN discounts d
+    ON s.sales_order_id = d.sales_order_id
+    WHERE s.sales_order_id = %s AND s.customer_id = %s
+)
+UPDATE sales as s
+SET discounted_value = c.discount
+FROM sales_updated_CTE as c 
+WHERE c.sales_order_id = s.sales_order_id 
+AND c.customer_id = s.customer_id
+AND c.sales_order_item = s.sales_order_item
+```
+
+
+ ```SQL
+select * from sales
+```
 
 ![image](https://user-images.githubusercontent.com/8701464/125846332-46ab78ca-3227-444b-b82e-3189b87c60ce.png)
 
 
 
-
-
+## Edge case
 The second approach (edge case), considered add more than the same product to the order and create different discounts to each item.
 
 ![second](https://user-images.githubusercontent.com/8701464/125843261-a78879e1-528b-4931-9598-d76d5d57e1f1.png)
-
-
-
-
-1. When is a discount generated for a specific user and sales order?
-  - If the user is using coupon or promotional codes, then, the discount record will exist before the sale order is being generated
-3. second
 
 
