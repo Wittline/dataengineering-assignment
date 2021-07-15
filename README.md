@@ -33,19 +33,57 @@ A sales order is a record that a customer can use to initiate or request a sale.
 
 There are two relevant situations in the description:
 
-1. **For a customer and a sales order there can exist a discount value in the Discounts table**
+- **For a customer and a sales order there can exist a discount value in the Discounts table**
   - This is let me understand that only a general discount value could be applied to the whole value of the order
   - Are the discounts being generated for a specific users?
   - There are situations where the order can be applied coupons or promotional codes which assign a general discount to the entire purchase.
-2. **However there is no information about the precise discount value per each item in the Sales table.**
+- **However there is no information about the precise discount value per each item in the Sales table.**
   - Here , the description is taking into account assign different discount vaues per item, which could implied store that information in another table.
   - Is there a catalog with a different discount for each item or is the discount allocation established in a general way to the entire user's order?
 
 
+The initial data model allows assigning a discount per user to each purchased item that appears in the sales table, but there are two problems with this approach:
+
+1. You cannot add different discounts to each item
+2. You cannot add more than one item of the same type to the order, this would create a problem with the composite primary key.
 
 ![initial](https://user-images.githubusercontent.com/8701464/125843250-e545b578-dc04-41b9-a3ca-a5e22d72b060.png)
 
-## Edge case
+let's focus in the relevant tables using postgresSQL
+
+ ```SQL
+
+CREATE TABLE IF NOT EXISTS Sales(
+    sales_order_id int NOT NULL,
+    sales_order_item int NOT NULL, 
+    customer_id int null,
+    date timestamp not null, 
+    transaction_value float not null, 
+    discounted_value float not null,
+    PRIMARY KEY(sales_order_id, sales_order_item, customer_id)
+);
+
+
+CREATE TABLE IF NOT EXISTS Discounts(
+    sales_order_id int not null,
+    customer_id int not null,
+    discount_value float not null
+    PRIMARY KEY(sales_order_id, customer_id)
+);
+
+insert into sales values 
+(1, 2, 150, NOW(), 200, 200),
+(1, 3, 150, NOW(), 310, 310),
+(1, 4, 150, NOW(), 80, 80)
+
+
+insert into discounts values (1, 150, 0.3)
+
+```
+
+
+
+The second approach (edge case), considered add more than the same product to the order and create different discounts to each item.
 
 ![second](https://user-images.githubusercontent.com/8701464/125843261-a78879e1-528b-4931-9598-d76d5d57e1f1.png)
 
