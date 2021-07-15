@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    jupyter-notebook:
+        image: jupyter/minimal-notebook
+        volumes:
+            - ./folder:/home/jovyan/work
+        ports:
+            - 8888:8888
+        container_name: jupyter-notebook-container
+        environment:
+            - JUPYTER_TOKEN=cargill
+        command: jupyter notebook --NotebookApp.iopub_data_rate_limit=3e10
+        depends_on:
+            - "db"
+    db:
+        container_name: pg_container
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: "cargill"
+            POSTGRES_PASSWORD: "cargill"
+            POSTGRES_DB: "cargill_db"
+        ports:
+            - "5432:5432"
+        volumes:
+            - pg_data:/var/lib/postgresql/data/
+
+volumes:
+    pg_data:
