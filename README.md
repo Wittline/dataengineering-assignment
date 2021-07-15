@@ -49,7 +49,7 @@ The initial data model allows assigning a discount per user to each purchased it
 
 ![initial](https://user-images.githubusercontent.com/8701464/125843250-e545b578-dc04-41b9-a3ca-a5e22d72b060.png)
 
-let's focus in the relevant tables using postgresSQL
+let's focus in the relevant tables using PostgreSQL
 
  ```SQL
 
@@ -80,6 +80,15 @@ insert into sales values
 insert into discounts values (1, 150, 0.3)
 
 ```
+
+
+![image](https://user-images.githubusercontent.com/8701464/125846226-9a106ea3-e8fe-42e0-98fa-d651ee8bd5cb.png)
+
+![image](https://user-images.githubusercontent.com/8701464/125846290-a12a143d-766c-4738-ba8b-57a6749a01e1.png)
+
+![image](https://user-images.githubusercontent.com/8701464/125846332-46ab78ca-3227-444b-b82e-3189b87c60ce.png)
+
+
 
 
 
