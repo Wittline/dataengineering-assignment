@@ -1,7 +1,9 @@
 import psycopg2
+import pandas as pd
 from sql_queries import create_table_queries, drop_table_queries
 
-def create_connection():
+
+def create_connection(params):
     """ 
     Connect to the PostgreSQL database server 
     
@@ -11,7 +13,7 @@ def create_connection():
 
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database')
-        conn = psycopg2.connect("host=pg_container dbname=cargill_db user=cargill password=cargill")
+        conn = psycopg2.connect(**params)
         conn.set_session(autocommit=True)
 
         # create a cursor
@@ -59,4 +61,21 @@ def create_tables(cur, conn):
     """
     for query in create_table_queries:
         cur.execute(query)
-        conn.commit()        
+        conn.commit()
+
+def pg_to_pd(cur, query, columns):
+    """
+    get SELECT query from table as panda dataframe
+    """
+    try:
+        cur.execute(query)
+    except (Exception, psycopg2.DatabaseError) as error:
+        print("Error: %s" % error)
+        return 1
+    
+    # Naturally we get a list of tupples
+    tupples = cur.fetchall()
+    
+    # We just need to turn it into a pandas dataframe
+    df = pd.DataFrame(tupples, columns=columns)
+    return df
