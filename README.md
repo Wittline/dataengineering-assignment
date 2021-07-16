@@ -265,6 +265,11 @@ The jupyter notebook of this project is called **cargill-assignment.ipynb** over
 
 ![image](https://user-images.githubusercontent.com/8701464/125875448-22edece7-e787-4052-98f0-81dd6026c25d.png)
 
+Now you can run the project step by step using this notebook, the files **sql_queries.py** and **db_engine.py** contains all the logic needed
+
+![image](https://user-images.githubusercontent.com/8701464/125875577-fda57bf9-0d18-4508-b98b-5c681dff2425.png)
+
+
 ![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
 
 
