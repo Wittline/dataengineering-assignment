@@ -270,8 +270,6 @@ Now you can run the project step by step using this notebook, the files **sql_qu
 ![image](https://user-images.githubusercontent.com/8701464/125875577-fda57bf9-0d18-4508-b98b-5c681dff2425.png)
 
 
-![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
-
 
 
 
