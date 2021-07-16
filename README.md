@@ -128,16 +128,88 @@ select * from sales
 
 
 ## Edge case
-The second approach (edge case), considered add more than the same product to the order and create different discounts to each item.
+The second approach (edge case), considered add more than one unit of the same product to the order (quantity) and create different discounts to each item, and update the discount is less complex
 
 ![second](https://user-images.githubusercontent.com/8701464/125843261-a78879e1-528b-4931-9598-d76d5d57e1f1.png)
 
 
+ ```SQL
+
+CREATE TABLE IF NOT EXISTS Sales2(
+    sales_order_id int NOT NULL,
+    customer_id int null,
+    date timestamp not null, 
+    PRIMARY KEY(sales_order_id, customer_id)
+);
+
+CREATE TABLE IF NOT EXISTS Order_detail(
+    sales_order_id int not null,
+    sales_order_item int NOT NULL, 
+    transaction_value float not null,
+    quantity int not null, 
+    discount_value float not null,
+    discounted_value float not null,
+    PRIMARY KEY(sales_order_id, sales_order_item)
+);
+
+
+insert into Sales2 values (1, 150, NOW())
+
+insert into Order_detail values 
+(1, 2, 150, 2, 0.3, 150),
+(1, 3, 210, 1, 0.4, 210), 
+(1, 4, 80, 3, 0.2, 80)
+
+
+```
+
+ ```SQL
+select * from sales2
+```
+
+
 ![image](https://user-images.githubusercontent.com/8701464/125873099-70979ace-318f-4e1b-adb9-3abb5a73e1d5.png)
+
+
+ ```SQL
+select * from Order_detail
+```
 
 ![image](https://user-images.githubusercontent.com/8701464/125873136-2604e75f-13db-4eb6-832a-8f193d50c3b0.png)
 
+
+ ```SQL
+UPDATE Order_detail
+SET discounted_value = (transaction_value - (transaction_value * discount_value)) * quantity
+WHERE sales_order_id = %s
+
+```
+
+ ```SQL
+select * from Order_detail
+```
+
 ![image](https://user-images.githubusercontent.com/8701464/125873152-5de4f628-fe3a-4af0-82ca-c70c182d8fc3.png)
+
+
+ # Steps to execute the project
+
+ - Install <a href="https://docs.docker.com/docker-for-windows/install/">Docker Desktop on Windows</a>, it will install **docker compose** as well, docker compose will alow you to run multiple containers applications, this project has two containers with **Jupyter Notebook** and **PostgreSQL**
+
+- Install <a href="https://www.stanleyulili.com/git/how-to-install-git-bash-on-windows/">git-bash for windows</a>, once installed , open **git bash** and download this repository, this will download all the folders and the **docker-compose.yml** file, and other files needed.
+
+``` 
+ramse@DESKTOP-K6K6E5A MINGW64 /c
+$ git clone https://github.com/Wittline/cargill-assignment.git
+```
+
+- Once all the files needed were downloaded from the repository , Let's run everything we will use the git bash tool again, go to the folder ~/documents/github/cargill-assignment/docker and run the docker compose command
+
+``` 
+ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/cargill-assignment/docker (main)
+$ docker-compose up
+``` 
+
 
 ![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
 
