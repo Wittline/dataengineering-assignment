@@ -38,7 +38,7 @@ There are two relevant situations in the description:
   - Are the discounts being generated for a specific users?
   - There are situations where the order can be applied coupons or promotional codes which assign a general discount to the entire purchase.
 - **However there is no information about the precise discount value per each item in the Sales table.**
-  - Here , the description is taking into account assign different discount vaues per item, which could implied store that information in another table.
+  - Here , the description is taking into account assign different discount values per item, which could implied store that information in another table.
   - Is there a catalog with a different discount for each item or is the discount allocation established in a general way to the entire user's order?
 
 ## Base case
