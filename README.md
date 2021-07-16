@@ -209,7 +209,55 @@ $ git clone https://github.com/Wittline/cargill-assignment.git
 ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/cargill-assignment/docker (main)
 $ docker-compose up
 ``` 
-lets wait until all the images and container be created
+let's wait until all the images and containers are created
+
+![image](https://user-images.githubusercontent.com/8701464/125874773-b4796bd0-11c4-4575-aa0c-ecdeae9f9f07.png)
+
+- Open a new git bash window again, and use the following command:
+
+``` 
+ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/cargill-assignment/docker (main)
+$ docker ps
+```
+It will show you all the containers and images contained in the **docker-compose-yml** file, this mean that all the images were created correctly
+
+![image](https://user-images.githubusercontent.com/8701464/125874919-7ba20efa-1070-45f1-8692-f5e4379f0bba.png)
+
+let's check the **docker-compose.yml** file 
+``` 
+version: '3'
+
+services:
+    jupyter-notebook:
+        image: jupyter/minimal-notebook
+        volumes:
+            - ./folder:/home/jovyan/work
+        ports:
+            - 8888:8888
+        container_name: jupyter-notebook-container
+        environment:
+            - JUPYTER_TOKEN=cargill
+        command: jupyter notebook --NotebookApp.iopub_data_rate_limit=3e10
+        depends_on:
+            - "db"
+    db:
+        container_name: pg_container
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: "cargill"
+            POSTGRES_PASSWORD: "cargill"
+            POSTGRES_DB: "cargill_db"
+        ports:
+            - "5432:5432"
+        volumes:
+            - pg_data:/var/lib/postgresql/data/
+
+volumes:
+    pg_data:
+```
+
+- go to the url **http://localhost:8888/** the psw will be **cargill** putted in the tag **- JUPYTER_TOKEN=cargill**
 
 ![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
 
