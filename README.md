@@ -133,3 +133,16 @@ The second approach (edge case), considered add more than the same product to th
 ![second](https://user-images.githubusercontent.com/8701464/125843261-a78879e1-528b-4931-9598-d76d5d57e1f1.png)
 
 
+![image](https://user-images.githubusercontent.com/8701464/125873099-70979ace-318f-4e1b-adb9-3abb5a73e1d5.png)
+
+![image](https://user-images.githubusercontent.com/8701464/125873136-2604e75f-13db-4eb6-832a-8f193d50c3b0.png)
+
+![image](https://user-images.githubusercontent.com/8701464/125873152-5de4f628-fe3a-4af0-82ca-c70c182d8fc3.png)
+
+![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
+
+
+
+
+
+
