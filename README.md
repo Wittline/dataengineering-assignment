@@ -261,7 +261,7 @@ volumes:
 
 ![image](https://user-images.githubusercontent.com/8701464/125875400-1af2e8e9-ade4-4d91-9f3c-92ae700f91a2.png)
 
-The jupyter notebook of this project is called **cargill-assignment.ipynb** over the folder **work**
+The jupyter notebook of this project is called **cargill-assignment.ipynb** over the folder **work**, there is a copy of this file in the folder called **folder** in this repository, please keep this file on its folder.
 
 ![image](https://user-images.githubusercontent.com/8701464/125875448-22edece7-e787-4052-98f0-81dd6026c25d.png)
 
