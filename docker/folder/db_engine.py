@@ -1,29 +1,27 @@
 import psycopg2
 import pandas as pd
-from sql_queries import create_table_queries, drop_table_queries
+from sql_queries import create_table_queries, drop_table_queries, insert_table_queries, update_identifier
 
 
 def create_connection(params):
-    """ 
-    Connect to the PostgreSQL database server 
-    
+    """
+     create a new connection with the postgreSQL 
+     database and return the cur and conn object
+
+    :param params: connection string   
+
     """
     conn = None
     try:
-
-        # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database')
         conn = psycopg2.connect(**params)
         conn.set_session(autocommit=True)
 
-        # create a cursor
         cur = conn.cursor()
-        
-        # execute a statement
+
         print('PostgreSQL database version:')
         cur.execute('SELECT version()')
 
-        # display the PostgreSQL database server version
         db_version = cur.fetchone()
         print(db_version)
     
@@ -33,8 +31,12 @@ def create_connection(params):
 
 
 def close_connection(cur, conn):
-    """ 
-    Close the connection with PostgreSQL database server 
+    """
+     close the connection with the postgreSQL database     
+
+    :param cur: cursor
+    :param conn: connection object
+
     """
     try:
         cur.close()
@@ -47,8 +49,13 @@ def close_connection(cur, conn):
 
 def drop_tables(cur, conn):
     """
-    This method will Drop each table using the queries in drop_table_queries list.
-    """    
+     drop all the tables in the example     
+
+    :param cur: cursor
+    :param conn: connection object
+
+    """
+
     for query in drop_table_queries:
         print(f"Executing: {query}")
         cur.execute(query)
@@ -57,25 +64,63 @@ def drop_tables(cur, conn):
 
 def create_tables(cur, conn):
     """
-    This method will Create each table using the queries in create_table_queries list. 
+     create all the tables in the example     
+
+    :param cur: cursor
+    :param conn: connection object
+
     """
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
+    print("Tables created")
 
 def pg_to_pd(cur, query, columns):
     """
-    get SELECT query from table as panda dataframe
+     return the select result as panda dataframe
+
+    :param cur: cursor
+    :param query: SELECT query string
+    :param columns: columns name in the select
+
     """
     try:
         cur.execute(query)
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error: %s" % error)
         return 1
-    
-    # Naturally we get a list of tupples
+        
     tupples = cur.fetchall()
     
-    # We just need to turn it into a pandas dataframe
+
     df = pd.DataFrame(tupples, columns=columns)
     return df
+
+
+def insert_all(cur, conn):
+    """
+     Insert all the test records in the tables
+
+    :param cur: cursor
+    :param conn: connection object
+
+    """
+    for query in insert_table_queries:
+        cur.execute(query)
+        conn.commit()
+    print("Records were inserted")        
+
+def update(cur, conn, table, params):
+    """
+     Insert all the test records in the tables
+
+    :param cur: cursor
+    :param conn: connection object
+    :param table: index to search the query string into the dictionary to update
+
+    """
+
+    query = update_identifier[table]    
+    cur.execute(query, params)
+    conn.commit()
+    print("Table updated")
