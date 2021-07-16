@@ -259,6 +259,12 @@ volumes:
 
 - go to the url **http://localhost:8888/** the psw will be **cargill** putted in the tag **- JUPYTER_TOKEN=cargill**
 
+![image](https://user-images.githubusercontent.com/8701464/125875400-1af2e8e9-ade4-4d91-9f3c-92ae700f91a2.png)
+
+The jupyter notebook of this project is called **cargill-assignment.ipynb** over the folder **work**
+
+![image](https://user-images.githubusercontent.com/8701464/125875448-22edece7-e787-4052-98f0-81dd6026c25d.png)
+
 ![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
 
 
