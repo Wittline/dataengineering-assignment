@@ -192,7 +192,7 @@ select * from Order_detail
 ![image](https://user-images.githubusercontent.com/8701464/125873152-5de4f628-fe3a-4af0-82ca-c70c182d8fc3.png)
 
 
- # Steps to execute the project
+# Steps to execute the project
 
  - Install <a href="https://docs.docker.com/docker-for-windows/install/">Docker Desktop on Windows</a>, it will install **docker compose** as well, docker compose will alow you to run multiple containers applications, this project has two containers with **Jupyter Notebook** and **PostgreSQL**
 
