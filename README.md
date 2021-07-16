@@ -1,4 +1,4 @@
-# Cargill - Prescreening Tasks for Data Engineer
+# Prescreening Tasks for Data Engineer
 
 This document provides the exercises that are part of the prescreening process for Data Engineering positions. As such, their goal is to provide insights into solutioning process and skills application for solving example tasks related to this position. Thus, please make sure to explain the important details and specify any assumption taken.
 
@@ -269,9 +269,11 @@ Now you can run the project step by step using this notebook, the files **sql_qu
 
 ![image](https://user-images.githubusercontent.com/8701464/125875577-fda57bf9-0d18-4508-b98b-5c681dff2425.png)
 
+# Summary
+- The project was builded with Python version 3 with the help of Jupyter notebook, and the database selected was PostgreSQL, It is a Containerized Development with Docker, so, all the dependencies and the example is must be deplyed using docker, check the file docker-compose-yml in this project.
+- All the answers were given to all items of exercise 1, using two approaches, the base approach which the problem is asking for, and an extra approach called edge case was shown as well.
+- The answer to exercise two is the implementation of the entire application demonstrating the two approaches programmatically, and its execution depends on the correct execution of the containers.
 
-
-
-
-
-
+# Authors
+- Created by <a href="https://www.linkedin.com/in/ramsescoraspe"><strong>Ramses Alexander Coraspe Valdez</strong></a>
+- Created on 2021
