@@ -203,13 +203,13 @@ ramse@DESKTOP-K6K6E5A MINGW64 /c
 $ git clone https://github.com/Wittline/cargill-assignment.git
 ```
 
-- Once all the files needed were downloaded from the repository , Let's run everything we will use the git bash tool again, go to the folder ~/documents/github/cargill-assignment/docker and run the docker compose command
+- Once all the files needed were downloaded from the repository , Let's run everything we will use the git bash tool again, go to the folder *~/documents/github/cargill-assignment/docker* and run the docker compose command
 
 ``` 
 ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/cargill-assignment/docker (main)
 $ docker-compose up
 ``` 
-
+lets wait until all the images and container be created
 
 ![image](https://user-images.githubusercontent.com/8701464/125873180-d7d970df-fe2b-4a96-a1dd-417a49e12b66.png)
 
