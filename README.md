@@ -200,13 +200,13 @@ select * from Order_detail
 
 ``` 
 ramse@DESKTOP-K6K6E5A MINGW64 /c
-$ git clone https://github.com/Wittline/cargill-assignment.git
+$ git clone https://github.com/Wittline/dataengineering-assignment.git
 ```
 
-- Once all the files needed were downloaded from the repository , Let's run everything we will use the git bash tool again, go to the folder *~/documents/github/cargill-assignment/docker* and run the docker compose command
+- Once all the files needed were downloaded from the repository , Let's run everything we will use the git bash tool again, go to the folder *~/documents/github/dataengineering-assignment/docker* and run the docker compose command
 
 ``` 
-ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/cargill-assignment/docker (main)
+ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/dataengineering-assignment/docker (main)
 $ docker-compose up
 ``` 
 let's wait until all the images and containers are created
@@ -216,7 +216,7 @@ let's wait until all the images and containers are created
 - Open a new git bash window again, and use the following command:
 
 ``` 
-ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/cargill-assignment/docker (main)
+ramse@DESKTOP-K6K6E5A MINGW64 ~/documents/github/dataengineering-assignment/docker (main)
 $ docker ps
 ```
 It will show you all the containers and images contained in the **docker-compose-yml** file, this mean that all the images were created correctly
