@@ -236,7 +236,7 @@ services:
             - 8888:8888
         container_name: jupyter-notebook-container
         environment:
-            - JUPYTER_TOKEN=cargill
+            - JUPYTER_TOKEN=jupyter
         command: jupyter notebook --NotebookApp.iopub_data_rate_limit=3e10
         depends_on:
             - "db"
@@ -245,9 +245,9 @@ services:
         image: postgres
         restart: always
         environment:
-            POSTGRES_USER: "cargill"
-            POSTGRES_PASSWORD: "cargill"
-            POSTGRES_DB: "cargill_db"
+            POSTGRES_USER: "db"
+            POSTGRES_PASSWORD: "db"
+            POSTGRES_DB: "db_db"
         ports:
             - "5432:5432"
         volumes:
@@ -257,11 +257,11 @@ volumes:
     pg_data:
 ```
 
-- go to the url **http://localhost:8888/** the psw will be **cargill** putted in the tag **- JUPYTER_TOKEN=cargill**
+- go to the url **http://localhost:8888/** the psw will be **jupyter** putted in the tag **- JUPYTER_TOKEN=jupyter**
 
 ![image](https://user-images.githubusercontent.com/8701464/125875400-1af2e8e9-ade4-4d91-9f3c-92ae700f91a2.png)
 
-The jupyter notebook of this project is called **cargill-assignment.ipynb** over the folder **work**, there is a copy of this file in the folder called **folder** in this repository, please keep this file on its folder.
+The jupyter notebook of this project is called **dataengineering-assignment.ipynb** over the folder **work**, there is a copy of this file in the folder called **folder** in this repository, please keep this file on its folder.
 
 ![image](https://user-images.githubusercontent.com/8701464/125875448-22edece7-e787-4052-98f0-81dd6026c25d.png)
 
